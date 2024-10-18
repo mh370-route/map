@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kartenlinien mit weniger engen Kurven</title>
+    <title>MH370 Route</title>
     <!-- Leaflet CSS einbinden -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -11,10 +11,63 @@
             height: 600px;
             width: 100%;
         }
+
+        .legend {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .legend h4 {
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .color-blue {
+            background-color: blue;
+        }
+        .color-green {
+            background-color: green;
+        }
+        .color-red {
+            background-color: red;
+        }
     </style>
 </head>
 <body>
     <div id="map"></div>
+
+    <div class="legend">
+        <h4>Legend</h4>
+        <div class="legend-item">
+            <div class="legend-color color-blue"></div>
+            <span>Secondary</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color color-green"></div>
+            <span>Primary</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color color-red"></div>
+            <span>WSPR</span>
+        </div>
+    </div>
 
     <!-- Leaflet JS einbinden -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
